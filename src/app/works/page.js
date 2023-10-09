@@ -1,6 +1,6 @@
 
 
-export default function Projects() {
+export default function Works() {
     return(
         <><p>Hello</p></>
     )   
