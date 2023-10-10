@@ -1,3 +1,4 @@
+import Footer from './components/Footer'
 import Menu from './components/Menu'
 import './globals.css'
 import { Inter } from 'next/font/google'
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Menu />
         {children}
+        <Footer />
         </body>
     </html>
   )
