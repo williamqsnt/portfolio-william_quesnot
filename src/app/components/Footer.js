@@ -17,7 +17,7 @@ export default function Footer() {
                     <a href="/" className="text-blue-500">
                         PORTFOLIO
                     </a>
-                    <p className="font-light text-sm">The ability to bring your imagination <br/> to life is what makes a good developer. </p>
+                    <p className="font-light text-sm">The ability to bring your imagination <br /> to life is what makes a good developer. </p>
                 </div>
                 <div className="lg:flex space-x-10 items-center py-5">
                     <div className="text-white text-sm text-center lg:text-left">
