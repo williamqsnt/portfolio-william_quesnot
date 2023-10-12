@@ -17,6 +17,10 @@ export default function Menu() {
         setMenuOpen(!menuOpen);
     };
 
+    const closeMenu = () => {
+        setMenuOpen(false);
+    };
+
     return (
         <div className="bg-black text-white p-4 fixed top-0 left-0 right-0 z-50">
             <div className="container mx-auto flex justify-between items-center">
@@ -68,18 +72,20 @@ export default function Menu() {
                 </div>
             </div>
             {menuOpen && (
-                <div className="md:hidden mt-4">
-                    {menuItems.map((item, index) => (
-                        <Link
-                            key={index}
-                            href={item.link}
-                            className="block py-2 hover:bg-gray-800 transition duration-300 ease-in-out text-center"
-                        >
-                            {item.text.toUpperCase()}
-                        </Link>
-                    ))}
-                </div>
-            )}
+    <div className="md:hidden mt-4 h-screen flex flex-col justify-center space-y-2">
+        {menuItems.map((item, index) => (
+            <Link
+                key={index}
+                href={item.link}
+                className="block py-6 hover:bg-gray-800 transition duration-300 ease-in-out text-center font-bold text-2xl"
+                onClick={closeMenu}
+            > 
+                {item.text.toUpperCase()}
+            </Link>
+        ))}
+    </div>
+)}
+
         </div>
     );
 }
