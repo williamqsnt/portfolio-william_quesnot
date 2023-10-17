@@ -1,96 +1,129 @@
 'use client'
 import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { Chrono } from "react-chrono";
 
 export default function About() {
-    const [selectedEvent, setSelectedEvent] = useState(null);
-    const eventDetailsRef = useRef(null);
 
-    const events = [
+
+    const timelineData = [
         {
-            id: 1,
-            year: 2020,
-            title: "Titre de l'événement 2020",
-            description: "Description de l'événement 2020...",
+            title: 'Événement 1',
+            cardTitle: 'Card 1',
+            cardSubtitle: 'Subtitle 1',
+            cardDetailedText: 'Description de l\'événement 1',
+            media: {
+                type: 'IMAGE',
+                source: {
+                    url: 'https://via.placeholder.com/150',
+                },
+            },
+            date: new Date(2023, 0, 1),
         },
         {
-            id: 2,
-            year: 2018,
-            title: "Titre de l'événement 2018",
-            description: "Description de l'événement 2018...",
+            title: 'Événement 2',
+            cardTitle: 'Card 2',
+            cardSubtitle: 'Subtitle 2',
+            cardDetailedText: 'Description de l\'événement 2',
+            media: {
+                type: 'IMAGE',
+                source: {
+                    url: 'https://via.placeholder.com/150',
+                },
+            },
+            date: new Date(2023, 2, 15),
         },
+        {
+            title: 'Événement 2',
+            cardTitle: 'Card 2',
+            cardSubtitle: 'Subtitle 2',
+            cardDetailedText: 'Description de l\'événement 2',
+            media: {
+                type: 'IMAGE',
+                source: {
+                    url: 'https://via.placeholder.com/150',
+                },
+            },
+            date: new Date(2023, 2, 15),
+        },
+        {
+            title: 'Événement 2',
+            cardTitle: 'Card 2',
+            cardSubtitle: 'Subtitle 2',
+            cardDetailedText: 'Description de l\'événement 2',
+            media: {
+                type: 'IMAGE',
+                source: {
+                    url: 'https://via.placeholder.com/150',
+                },
+            },
+            date: new Date(2023, 2, 15),
+        },
+        {
+            title: 'Événement 2',
+            cardTitle: 'Card 2',
+            cardSubtitle: 'Subtitle 2',
+            cardDetailedText: 'Description de l\'événement 2',
+            media: {
+                type: 'IMAGE',
+                source: {
+                    url: 'https://via.placeholder.com/150',
+                },
+            },
+            date: new Date(2023, 2, 15),
+        },
+        {
+            title: 'Événement 2',
+            cardTitle: 'Card 2',
+            cardSubtitle: 'Subtitle 2',
+            cardDetailedText: 'Description de l\'événement 2',
+            media: {
+                type: 'IMAGE',
+                source: {
+                    url: 'https://via.placeholder.com/150',
+                },
+            },
+            date: new Date(2023, 2, 15),
+        },
+        
         // Ajoutez d'autres événements ici
     ];
 
+    const [isVisible, setIsVisible] = useState(false);
+
     useEffect(() => {
-        // Animation pour ouvrir l'événement sélectionné
-        if (selectedEvent) {
-            gsap.to(eventDetailsRef.current, {
-                width: "50%",
-                duration: 0.5,
-            });
-            gsap.to(".about-me", {
-                width: "0%",
-                duration: 0.5,
-            });
-        } else {
-            // Animation pour fermer l'événement sélectionné
-            gsap.to(eventDetailsRef.current, {
-                width: 0,
-                duration: 0.5,
-            });
-            gsap.to(".about-me", {
-                width: "50%",
-                duration: 0.5,
-            });
-        }
-    }, [selectedEvent]);
+        const handleScroll = () => {
+            const element = document.getElementById('timeline');
 
-    const openEvent = (event) => {
-        setSelectedEvent(event);
-    };
+            if (element) {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
 
-    const closeEvent = () => {
-        setSelectedEvent(null);
-    };
+                if (elementTop < windowHeight) {
+                    setIsVisible(true);
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
 
     return (
         <main className="flex flex-col lg:flex-row items-center">
-            <div className="lg:w-1/2 w-full lg:h-screen h-auto about-me flex items-center justify-center">
+            <div className="w-full lg:h-screen h-auto about-me flex items-center justify-center">
                 <h1 className="text-4xl lg:text-6xl font-bold">About Me</h1>
             </div>
-            <div className="lg:w-1/2 bg-gray-800 p-4 lg:h-screen w-full mt-20">
-                <div className="space-y-8">
-                    {events.map((event) => (
-                        <div
-                            key={event.id}
-                            className="flex cursor-pointer"
-                            onClick={() => openEvent(event)}
-                        >
-                            <div className="bg-gray-600 h-10 w-10 rounded-full flex items-center justify-center">
-                                <span className="text-white">{event.year}</span>
-                            </div>
-                            <div className="ml-4">
-                                <h2 className="text-lg font-semibold">{event.title}</h2>
-                                <p className="text-gray-300">Description de l'événement.</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-            <div className="event-details" ref={eventDetailsRef}>
-                {selectedEvent && (
-                    <div className="text-white p-4">
-                        <h2 className="text-lg font-semibold">
-                            {selectedEvent.title}
-                        </h2>
-                        <p className="text-gray-300">
-                            {selectedEvent.description}
-                        </p>
-                        <button onClick={closeEvent}>Fermer</button>
-                    </div>
-                )}
-            </div>
+
+            <Chrono
+                items={timelineData}
+                mode="VERTICAL"
+                style={{ visibility: isVisible ? 'visible' : 'hidden' }}
+            />
         </main>
     );
 }

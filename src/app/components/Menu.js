@@ -22,18 +22,14 @@ export default function Menu() {
     };
 
     return (
-        <div className="bg-black text-white p-4 fixed top-0 left-0 right-0 z-50">
-            <div className="container mx-auto flex justify-between items-center">
-                <div className="hidden md:flex space-x-2 items-center">
-                    <div className="text-xl font-bold">
-                        <Link href="/" className='text-blue-500 mr-5'>PORTFOLIO</Link>
-                    </div>
-                    <div className="text-white">|</div>
+        <div className="bg-[#ECE7DF]  p-8 fixed top-0 left-0 right-0 z-50">
+            <div className="container mx-auto flex justify-center items-center">
+                <div className="hidden md:flex space-x-8 items-center">
                     {menuItems.map((item, index) => (
                         <React.Fragment key={index}>
                             <Link
                                 href={item.link}
-                                className="text-white hover:text-blue-500 transition duration-300 ease-in-out font-bold"
+                                className="text-green-900 transition duration-300 ease-in-out font-medium"
                             >
                                 {item.text.toUpperCase()}
                             </Link>
@@ -41,10 +37,7 @@ export default function Menu() {
                         </React.Fragment>
                     ))}
                 </div>
-                <div className='flex'>
-                    <a href="https://github.com/williamqsnt" target='_blank'><Image src="/github.svg" width={30} height={30} className="mr-4" /></a>
-                    <a href="https://www.linkedin.com/in/william-quesnot/" target='_blank'><Image src="/linkedin.svg" width={30} height={30} /></a>
-                </div>
+
 
 
                 <div className="md:hidden">
@@ -72,19 +65,19 @@ export default function Menu() {
                 </div>
             </div>
             {menuOpen && (
-    <div className="md:hidden mt-4 h-screen flex flex-col justify-center space-y-2">
-        {menuItems.map((item, index) => (
-            <Link
-                key={index}
-                href={item.link}
-                className="block py-6 hover:bg-gray-800 transition duration-300 ease-in-out text-center font-bold text-2xl"
-                onClick={closeMenu}
-            > 
-                {item.text.toUpperCase()}
-            </Link>
-        ))}
-    </div>
-)}
+                <div className="md:hidden mt-4 h-screen flex flex-col justify-center space-y-2">
+                    {menuItems.map((item, index) => (
+                        <Link
+                            key={index}
+                            href={item.link}
+                            className="block py-6 hover:bg-gray-800 transition duration-300 ease-in-out text-center font-bold text-2xl"
+                            onClick={closeMenu}
+                        >
+                            {item.text.toUpperCase()}
+                        </Link>
+                    ))}
+                </div>
+            )}
 
         </div>
     );

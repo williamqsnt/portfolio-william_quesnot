@@ -85,10 +85,10 @@ export default function Experiences() {
 
     return (
         <main className="flex flex-col lg:flex-row">
-            <div className="lg:w-1/2 w-full lg:h-screen h-auto about-me flex items-center justify-center">
-                <h1 className={`text-4xl lg:text-6xl font-bold lg:mt-0 mt-28 ${selectedExperience ? 'text-black' : 'text-white'} `}>What is my <br /> Experiences</h1>
+<div className="lg:w-1/2 w-full h-auto about-me flex items-center justify-center bg-gradient-to-b from-black to-blue-500 lg:h-screen lg:bg-black">
+                <h1 className={`text-4xl lg:text-6xl font-bold lg:mt-0 ml-20 mt-28 ${selectedExperience ? 'text-black' : 'text-white'} `}>What is my <br /> Experiences</h1>
             </div>
-            <div className="lg:w-1/2 bg-gray-800 p-4 lg:h-screen w-full mt-16">
+            <div className="lg:w-1/2 bg-gradient-to-b from-black to-gray-800 p-4 lg:h-screen w-full mt-16">
                 <div className="space-y-8">
                     {experiences.map((experience) => (
                         <div
@@ -123,13 +123,13 @@ export default function Experiences() {
                     ))}
                 </div>
             </div>
-            <div className={`experience-details w-full mt-16 bg-gray-700 ${isExperienceVisible ? 'block' : 'hidden'}`} ref={experienceDetailsRef}>
+            <div className={`experience-details w-full mt-16 bg-gradient-to-b from-black to-blue-500 ${isExperienceVisible ? 'block' : 'hidden'}`} ref={experienceDetailsRef}>
                 {selectedExperience && (
                     <div className="text-white p-4">
                         <div className="flex justify-end">
                             <button onClick={closeExperience} className="text-3xl cursor-pointer">✖</button>
                         </div>
-                        <h2 className="text-2xl text-blue-500 font-semibold">
+                        <h2 className="text-4xl text-white font-semibold">
                             {selectedExperience.title}
                         </h2>
                         <p className="text-gray-300">
