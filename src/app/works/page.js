@@ -69,16 +69,16 @@ const Works = () => {
     };
 
     return (
-        <div className="text-center mt-48 bg-[#ECE7DF]">
-            <h1 className="text-6xl font-bold my-28 text-green-900">My works</h1>
+        <div className="text-center mt-48 bg-blue-custom">
+            <h1 className="text-6xl font-bold my-28 text-white">My works</h1>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 m-8">
                 {projects.map((project, index) => (
                     <div key={index} className="bg-white p-8 m-2 border rounded-lg relative group transition-all duration-300 hover:opacity-200">
-                        <div className="bg-green-900 absolute inset-0 opacity-0 group-hover:opacity-40 transition-all duration-300 rounded-lg"></div>
+                        <div className="bg-lightblue-custom absolute inset-0 opacity-0 group-hover:opacity-40 transition-all duration-300 rounded-lg"></div>
                         <div className='flex justify-around text-left'>
                             <div className='flex flex-col items-start justify-center'>
-                                <h2 className="text-2xl font-bold text-green-800">{project.name}</h2>
-                                <p className="text-gray-black mt-4 text-green-900">{project.description}</p>
+                                <h2 className="text-2xl font-bold text-blue-custom">{project.name}</h2>
+                                <p className="text-gray-black mt-4 text-blue-custom">{project.description}</p>
                             </div>
                             <div className="flex items-center ml-8 my-4">
                                 <img src={project.background} alt={project.name} className="w-24 h-24" style={{ height: '100%' }} />
@@ -86,7 +86,7 @@ const Works = () => {
                         </div>
 
                         <div className="absolute left-0 right-0 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:transition-opacity duration-300">
-                            <a href={project.urlRepository} className=" inline-block relative bg-black p-2 rounded text-white hover:bg-black mr-2">Repository</a>
+                            <a href={project.urlRepository} className=" inline-block relative bg-lightblue-custom p-2 rounded text-white hover:bg-black mr-2">Repository</a>
                             <a href={project.urlWebsite} className="inline-block relative bg-black p-2 rounded text-white hover:bg-black">Website</a>
 
                         </div>

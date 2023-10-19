@@ -6,8 +6,8 @@ import React, { useState } from 'react';
 const menuItems = [
     { text: 'About', link: 'about' },
     { text: 'Works', link: 'works' },
-    { text: 'Experiences', link: 'experiences' },
-    { text: 'Blogs', link: 'blogs' },
+    { text: 'Notes', link: 'notes' },
+    { text: 'Contact', link: 'contact' },
 ];
 
 export default function Menu() {
@@ -22,14 +22,14 @@ export default function Menu() {
     };
 
     return (
-        <div className="bg-[#ECE7DF]  p-8 fixed top-0 left-0 right-0 z-50">
+        <div className="bg-blue-custom  p-8 fixed top-0 left-0 right-0 z-50">
             <div className="container mx-auto flex justify-center items-center">
                 <div className="hidden md:flex space-x-8 items-center">
                     {menuItems.map((item, index) => (
                         <React.Fragment key={index}>
                             <Link
                                 href={item.link}
-                                className="text-green-900 transition duration-300 ease-in-out font-medium"
+                                className="text-white transition duration-300 ease-in-out font-bold"
                             >
                                 {item.text.toUpperCase()}
                             </Link>
