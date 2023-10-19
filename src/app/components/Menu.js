@@ -22,8 +22,8 @@ export default function Menu() {
     };
 
     return (
-        <div className="bg-blue-custom  p-8 fixed top-0 left-0 right-0 z-50">
-            <div className="container mx-auto flex justify-center items-center">
+        <div className="bg-blue-custom p-8 fixed top-0 left-0 right-0 z-50">
+            <div className="container mx-auto flex items-center justify-center w-full"> {/* Utilisez w-full pour définir la largeur à 100% */}
                 <div className="hidden md:flex space-x-8 items-center">
                     {menuItems.map((item, index) => (
                         <React.Fragment key={index}>
@@ -33,17 +33,14 @@ export default function Menu() {
                             >
                                 {item.text.toUpperCase()}
                             </Link>
-
                         </React.Fragment>
                     ))}
                 </div>
-
-
-
-                <div className="md:hidden">
+                
+                <div className="md:hidden flex lg:justify-center justify-end w-full">
                     <button onClick={toggleMenu}>
                         <svg
-                            className="w-6 h-6 fill-current"
+                            className="w-10 h-10 fill-white"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                         >
@@ -70,7 +67,7 @@ export default function Menu() {
                         <Link
                             key={index}
                             href={item.link}
-                            className="block py-6 hover:bg-gray-800 transition duration-300 ease-in-out text-center font-bold text-2xl"
+                            className="text-white block py-6 hover-bg-gray-800 transition duration-300 ease-in-out text-center font-bold text-2xl"
                             onClick={closeMenu}
                         >
                             {item.text.toUpperCase()}
@@ -78,7 +75,6 @@ export default function Menu() {
                     ))}
                 </div>
             )}
-
         </div>
     );
 }
